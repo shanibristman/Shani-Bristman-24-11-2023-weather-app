@@ -1,0 +1,21 @@
+.home{
+    background-color: #f6f6f6;
+    display: flex;
+    flex-direction: column;
+    /* grid-template-rows: 1fr 2fr 3fr; */
+    /* justify-content: center; */
+    align-items: center;
+    height: 100vh;
+}
+
+.card , .search{
+    width: 300px;
+}
+
+.padding{
+    padding: 20px;
+}
+
+.forecasts{
+    width: 80%;
+}

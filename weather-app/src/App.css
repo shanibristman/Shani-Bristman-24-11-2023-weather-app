@@ -1,0 +1,21 @@
+*{
+    /* background-color: #f8fbff; */
+    margin: 0;
+    font-family: 'Maven Pro', sans-serif;
+}
+
+.sun{
+    color: rgb(213, 213, 71)
+}
+
+.cloud_rain{
+    color: rgb(122, 119, 119);
+}
+
+.cloud_sun{
+    color: rgb(47, 142, 142)
+}
+
+.size{
+    font-size:1.5em;
+}

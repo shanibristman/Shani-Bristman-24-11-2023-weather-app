@@ -1,0 +1,30 @@
+
+
+.navbar{
+    background-color: #2a3c56;
+    /* background-color: #9EB8D9; */
+
+    /* color: #A25772; */
+    color: #f6f6f6;
+    font-weight: bold;
+    align-items: center;
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: 10em 10em;
+    padding: 20px;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    color: #f6f6f6;
+}
+.icons{
+    display: flex;
+    justify-content:space-between;
+}
+
+.icon{
+    cursor: pointer;
+    color: #f6f6f6;
+    text-decoration: none;
+}
