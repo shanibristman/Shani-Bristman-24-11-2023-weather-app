@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Shani-Bristman-24-11-2023-weather-app/static/css/main.255dd782.css",
+    "main.js": "/Shani-Bristman-24-11-2023-weather-app/static/js/main.66ea0854.js",
+    "index.html": "/Shani-Bristman-24-11-2023-weather-app/index.html",
+    "main.255dd782.css.map": "/Shani-Bristman-24-11-2023-weather-app/static/css/main.255dd782.css.map",
+    "main.66ea0854.js.map": "/Shani-Bristman-24-11-2023-weather-app/static/js/main.66ea0854.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.255dd782.css",
+    "static/js/main.66ea0854.js"
+  ]
+}
