@@ -7,8 +7,10 @@ import './Search.css'
 export default function Search() {
 
     const dispatch = useDispatch();
+    const { darkMode } = useSelector((state) => state.data)
     const searchResults = useSelector((state) => state.data.search);
     const status = useSelector((state) => state.data.statusSearch);
+    const error = useSelector((state) => state.data.errorSearch);
     const [searchText, setSearchText] = useState("");
     const [showList, SetShowList] = useState(false)
 
@@ -21,9 +23,9 @@ export default function Search() {
         SetShowList(!showList)
         dispatch(changeKey(key))
         dispatch(changeCity(city))
-        // console.log(key)
         dispatch(fetchCurrent())
         dispatch(fetchAllWeek())
+        setSearchText("")
     }
 
     useEffect(() => {
@@ -32,15 +34,16 @@ export default function Search() {
 
 
     return (
-        <div className='all_search'>
+        <div className={`all_search ${darkMode ? 'dark-search' : 'light-search'}`}>
             <div className="searchArea">
-                <input placeholder="type.." value={searchText} onChange={(e) => setSearchText(e.target.value.toLowerCase())} />
-                {/* <img src={require('../Assets/search.png')} onClick={submitSearch} /> */}
-                <i className="fa-solid fa-magnifying-glass" onClick={submitSearch}></i>
+                <input className={`${darkMode ? 'input-dark' : 'input'}`} placeholder="type.." value={searchText} onChange={(e) => setSearchText(e.target.value.toLowerCase())} />                {/* <img src={require('../Assets/search.png')} onClick={submitSearch} /> */}
+                <i className={`fa-solid fa-magnifying-glass ${darkMode ? 'i-dark' : 'i'}`} onClick={submitSearch}></i>
             </div>
+            {status === 'loading' && <p>Loading...</p>}
+            {status === 'failed' && <p>{error}</p>}
             {status === 'succeeded'
                 && showList &&
-                (<div className='list'>
+                (<div className={`list ${darkMode ? 'dark-container' : 'list-color-light'}`}>
                     {searchResults.map(item => (
                         <div key={item.Key} onClick={() => selectLocation(item.Key, item.LocalizedName)}>{item.LocalizedName}</div>
                     ))}

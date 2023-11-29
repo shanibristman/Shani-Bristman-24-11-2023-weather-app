@@ -11,13 +11,10 @@ export default function WeatherForFiveDays() {
     const status = useSelector((state) => state.data.statusAllWeek);
     const error = useSelector((state) => state.data.errorAllWeek)
 
+    const { darkMode } = useSelector((state) => state.data);
+
     const selectLogo = (code) => {
-        // sun 1-3 5 30 -
-        //sun with clouds 4 6 20 21 -
-        //clouds 7-11 31 35 36 37 38 -
-        //rain 12 15 18 22 24 25-29 39-44 - 
-        //sun rain 13 14 16 17 23 -
-        //nigth 32-34
+
         if (code === 1 || code === 2 || code === 3 || code === 5 || code === 30) {
             return <i className="fa-solid fa-sun sun size"></i>
         }
@@ -47,13 +44,15 @@ export default function WeatherForFiveDays() {
     useEffect(() => {
         dispatch(fetchAllWeek());
     }, [dispatch]);
+
     return (
-        <div className="forecastsDetails">
+        <div className={`forecastsDetails ${darkMode ? 'dark-container' : 'light-container'}`}>
+            {status === 'loading' && <p>Loading...</p>}
+            {status === 'failed' && <p>{error}</p>}
             {status === 'succeeded'
                 && (
                     weather.DailyForecasts.map((item) => (
                         <div key={item.Date} className='day'>
-                            {/* <i class="fa-solid fa-cloud"></i> */}
                             {selectLogo(item.Day.Icon)}
                             <div>{new Date(item.Date).toLocaleDateString('en-US', {
                                 weekday: 'long'
